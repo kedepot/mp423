@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Mp423 - Rip mp4 audio to mp3's. Bash Script - Kjell Emanuelsson 2022
+# When used for Custom Action for Thunar : Use %F
+
+args=( "$@" )
+for f in ${args[@]}; do
+    if [ "${f: -4}" == ".mp4" ]; then
+        NAME=${f%.*}
+        ffmpeg -i "$f" -loglevel quiet -stats -vn -acodec \
+        libmp3lame -ac 2 -ab 160k -ar 44100 "$NAME.mp3"
+        if [ -t 0 ] ; then
+            echo " ░▒▓██ COMPLETED: $NAME.mp3"
+        else
+            notify-send " ░▒▓██ COMPLETED: $NAME.mp3"
+        fi
+    fi
+    done
