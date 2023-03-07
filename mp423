@@ -12,7 +12,7 @@ for f in ${args[@]}; do
         if [ -t 0 ] ; then
             echo " ░▒▓██ COMPLETED: $NAME.mp3"
         else
-            notify-send " ░▒▓██ COMPLETED: $NAME.mp3"
+            notify-send "MP4-2-3 ░▒▓██ COMPLETED: $NAME.mp3"
         fi
     fi
     done
