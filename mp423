@@ -4,6 +4,7 @@
 # When used for Custom Action for Thunar : Use %F
 
 args=( "$@" )
+IFS=""
 for f in ${args[@]}; do
     if [ "${f: -4}" == ".mp4" ]; then
         NAME=${f%.*}
